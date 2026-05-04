@@ -23,12 +23,22 @@ $headings-font-family: 'Space Grotesk', sans-serif;
   --accent-gold: #{$accent-gold};
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: $off-white;
   color: $charcoal;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+}
+
+// App wrapper clip
+.App {
+  overflow-x: hidden;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -76,12 +86,20 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-custom {
   transition: all 0.3s ease;
   padding: 1.5rem 0;
+  border-bottom: none !important; // Remove Bootstrap's default navbar border line
   
   &.scrolled {
     background: rgba(245, 242, 238, 0.9);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+  }
+
+  // Mobile: Give navbar a background even before scrolling
+  @include media-breakpoint-down(lg) {
+    background: rgba(245, 242, 238, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
   }
 
   .nav-link {
@@ -106,6 +124,37 @@ h1, h2, h3, h4, h5, h6 {
     
     &:hover::after, &.active::after {
       width: 100%;
+    }
+  }
+
+  // Mobile Menu Background
+  .navbar-collapse {
+    @include media-breakpoint-down(lg) {
+      background: rgba(245, 242, 238, 0.98);
+      backdrop-filter: blur(10px);
+      margin-top: 15px;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(26, 26, 26, 0.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      
+      .nav-link {
+        margin: 10px 0;
+        padding: 5px 0;
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .navbar-toggler {
+    padding: 0.5rem;
+    &:focus {
+      box-shadow: none;
+    }
+    .navbar-toggler-icon {
+      filter: invert(0); // Ensure visibility
     }
   }
 }
@@ -169,19 +218,34 @@ h1, h2, h3, h4, h5, h6 {
 .project-card {
   position: relative;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 4px;
+  background: white;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    border-color: $accent-gold;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+  }
 
   .project-img-wrapper {
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     background: #eee;
+    position: relative;
     
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
+  }
+
+  &:hover .project-img-wrapper img {
+    transform: scale(1.06);
   }
 
   .project-overlay {
@@ -190,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(17, 17, 17, 0.8);
+    background: linear-gradient(135deg, rgba(17, 17, 17, 0.85), rgba(200, 169, 110, 0.3));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,19 +265,98 @@ h1, h2, h3, h4, h5, h6 {
       color: white;
       text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
+      font-size: 0.8rem;
       border-bottom: 2px solid $accent-gold;
-      padding-bottom: 5px;
+      padding-bottom: 6px;
+      transition: letter-spacing 0.3s ease;
+      &:hover {
+        letter-spacing: 0.2em;
+      }
     }
   }
 
+  &:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-body {
+    padding: 24px 28px 28px;
+  }
+
+  .project-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $accent-gold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 4px 10px;
+      border: 1px solid rgba(26,26,26,0.12);
+      border-radius: 2px;
+      color: $text-secondary;
+      background: $off-white;
+    }
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $charcoal;
+    text-decoration: none;
+    border-bottom: 2px solid $accent-gold;
+    padding-bottom: 2px;
+    transition: color 0.2s ease, letter-spacing 0.2s ease;
+
+    &:hover {
+      color: $accent-gold;
+      letter-spacing: 0.14em;
+    }
+  }
+}
+
+// Project Filter Buttons
+.project-filter-btn {
+  padding: 8px 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  background: transparent;
+  color: $text-secondary;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+
   &:hover {
-    .project-img-wrapper img {
-      transform: scale(1.05);
-    }
-    .project-overlay {
-      opacity: 1;
-    }
+    border-color: $accent-gold;
+    color: $charcoal;
+  }
+
+  &[data-active="true"] {
+    background: $charcoal;
+    border-color: $charcoal;
+    color: white;
   }
 }
 
