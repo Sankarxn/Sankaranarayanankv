@@ -79,13 +79,13 @@ const Hero = () => {
           <Row className="text-center text-lg-start">
             <Col md={4} className="mb-3 mb-md-0">
               <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-3">
-                <span className="display-6 fw-bold">7+</span>
+                <span className="display-6 fw-bold">5+</span>
                 <span className="small text-uppercase ls-wide text-secondary">Months <br/> Experience</span>
               </div>
             </Col>
             <Col md={4} className="mb-3 mb-md-0">
               <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-3">
-                <span className="display-6 fw-bold">5+</span>
+                <span className="display-6 fw-bold">3+</span>
                 <span className="small text-uppercase ls-wide text-secondary">Projects <br/> Completed</span>
               </div>
             </Col>
