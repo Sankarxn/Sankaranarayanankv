@@ -9,7 +9,7 @@ const Footer = () => {
         <Row className="align-items-center mb-5">
           <Col md={4} className="text-center text-md-start mb-4 mb-md-0">
             <h3 className="fw-bold ls-tight mb-1">SANKARA<span className="text-accent">NARAYANAN</span></h3>
-            <p className="small text-secondary text-uppercase ls-wide mb-0">Self-Taught Frontend Developer</p>
+            <p className="small text-secondary text-uppercase ls-wide mb-0">Premium Website Developer & Growth Strategist</p>
           </Col>
           <Col md={4} className="text-center mb-4 mb-md-0">
             <div className="d-flex justify-content-center gap-4">
@@ -21,10 +21,10 @@ const Footer = () => {
           <Col md={4} className="text-center text-md-end">
             <div className="d-flex justify-content-center justify-content-md-end gap-3">
               {[
-                { icon: <FaInstagram />, link: 'https://www.instagram.com/sankar_xn/' },
-                { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/sankarxn/' },
-                { icon: <FaGithub />, link: 'https://github.com/Sankarxn' },
-                { icon: <FaXTwitter />, link: 'https://x.com/Sankarxn' }
+                { icon: <FaInstagram />, link: 'https://www.instagram.com/sankar_xn/', label: 'Follow me on Instagram' },
+                { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/sankarxn/', label: 'Visit my LinkedIn profile' },
+                { icon: <FaGithub />, link: 'https://github.com/Sankarxn', label: 'View my GitHub projects' },
+                { icon: <FaXTwitter />, link: 'https://x.com/Sankarxn', label: 'Follow me on X (Twitter)' }
               ].map((social, index) => (
                 <a 
                   key={index} 
@@ -32,6 +32,7 @@ const Footer = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="social-icon-btn d-flex align-items-center justify-content-center"
+                  aria-label={social.label}
                   style={{ 
                     width: '45px', 
                     height: '45px', 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaArrowRight, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -6,41 +6,33 @@ const projectsData = [
   {
     number: '01',
     name: 'CN Systemz',
-    category: 'LANDING PAGE',
-    desc: 'A modern and responsive landing page for a computer sales and service center. Focused on clean UI, fast load times, and clear call-to-actions to drive customer enquiries.',
+    category: 'E-COMMERCE GROWTH',
+    desc: 'Redesigned the digital storefront for a hardware retailer to prioritize lead capture. By optimizing the product enquiry flow and reducing load times by 60%, the site now generates a consistent stream of high-quality sales enquiries.',
     img: 'https://placehold.co/800x450/1A1A1A/C8A96E?text=CN+Systemz',
     link: 'https://cnsystemz.netlify.app/',
-    tags: ['ReactJS', 'CSS3', 'JavaScript', 'Netlify'],
+    tags: ['Conversion Rate Optimization', 'Performance Rebuild', 'Lead Gen'],
   },
   {
     number: '02',
-    name: 'Eswarprasad Resume',
-    category: 'PORTFOLIO',
-    desc: 'A fully responsive frontend resume/portfolio for a Clinical Engineer. Structured for readability with a professional layout, subtle animations, and downloadable CV.',
+    name: 'Eswarprasad',
+    category: 'PERSONAL BRAND',
+    desc: 'Developed a high-authority portfolio for a technical specialist. Focused on a "Search-First" architecture that achieved a perfect 100/100 Lighthouse score, positioning the client as a top-tier expert in their field.',
     img: 'https://placehold.co/800x450/F5F2EE/1A1A1A?text=Eswarprasad+Resume',
     link: 'https://eswarprasad-ke.netlify.app/',
-    tags: ['HTML5', 'CSS3', 'Bootstrap', 'JavaScript'],
+    tags: ['Technical SEO', 'Accessibility', 'Lighthouse 100'],
   },
   {
     number: '03',
     name: 'Aentree Digital',
-    category: 'AGENCY WEBSITE',
-    desc: 'A modern agency website for Aentree — a digital brand focused on helping businesses grow. Features animated sections, a services showcase, and a lead-generation contact form.',
+    category: 'AGENCY PLATFORM',
+    desc: 'Built a premium agency website designed to convert cold traffic into high-ticket leads. Implemented advanced storytelling animations and a frictionless UX to establish immediate brand credibility.',
     img: 'https://placehold.co/800x450/111111/C8A96E?text=Aentree+Digital',
     link: 'https://aentree.vercel.app/',
-    tags: ['React', 'Vite', 'SCSS', 'Vercel'],
+    tags: ['Brand Authority', 'Animated UX', 'Lead Capture'],
   },
 ];
 
-const filters = ['ALL', 'LANDING PAGE', 'PORTFOLIO', 'AGENCY WEBSITE'];
-
 const Projects = () => {
-  const [active, setActive] = useState('ALL');
-
-  const filtered = active === 'ALL'
-    ? projectsData
-    : projectsData.filter(p => p.category === active);
-
   return (
     <section id="projects" className="section-padding">
       <Container>
@@ -66,23 +58,9 @@ const Projects = () => {
           </Col>
         </Row>
 
-        {/* Filters */}
-        <div className="d-flex flex-wrap gap-2 mb-5" data-aos="fade-up" data-aos-delay="100">
-          {filters.map(f => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className="project-filter-btn"
-              data-active={active === f}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
-
         {/* Project Cards */}
         <Row className="g-4">
-          {filtered.map((project, index) => (
+          {projectsData.map((project, index) => (
             <Col lg={6} key={project.number} data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="project-card h-100">
                 {/* Image */}

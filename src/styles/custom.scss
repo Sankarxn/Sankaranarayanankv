@@ -157,6 +157,29 @@ h1, h2, h3, h4, h5, h6 {
       filter: invert(0); // Ensure visibility
     }
   }
+
+  .nav-cta {
+    background: $charcoal;
+    color: white !important;
+    padding: 10px 24px !important;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+
+    &:hover {
+      background: $accent-gold;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(200, 169, 110, 0.2);
+    }
+    
+    &::after {
+      display: none !important;
+    }
+  }
 }
 
 // Hero Animations
@@ -201,8 +224,19 @@ h1, h2, h3, h4, h5, h6 {
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border-color: $accent-gold;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.07);
+    border-color: transparent;
+    background: linear-gradient(to bottom right, #ffffff, #fafafa);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border: 1px solid $accent-gold;
+      z-index: -1;
+      margin: -1px;
+    }
   }
 
   .number {
@@ -390,3 +424,42 @@ h1, h2, h3, h4, h5, h6 {
   height: 80px;
   margin: -80px 0 0;
 }
+
+// Trust Section Marquee
+.trust-marquee {
+  overflow: hidden;
+  padding: 30px 0;
+  background: white;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+
+  .marquee-content {
+    display: flex;
+    gap: 80px;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+
+  .trust-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: rgba(26, 26, 26, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $accent-gold;
+      transform: scale(1.05);
+    }
+  }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+

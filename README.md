@@ -16,8 +16,6 @@ A high-performance personal portfolio built to showcase my work, skills, and abi
 
 Hi, I'm **Sankaran** — a self-taught frontend developer focused on building real-world, production-ready websites.
 
-Currently evolving into a **MERN Stack Developer**, with a strong foundation in frontend systems.
-
 What I actually do:
 - Build **fast-loading websites** (not bloated templates)
 - Create **clean, responsive UI** that works on all devices

@@ -22,16 +22,16 @@ const Navigation = () => {
         <Navbar.Brand href="#home" className="fw-bold fs-4 ls-tight">
           SANKARA<span className="text-accent">NARAYANAN</span>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Toggle navigation" className="border-0 shadow-none" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto text-center">
+          <Nav className="ms-auto text-center align-items-center">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#skills">Skills</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
-            <Nav.Link href="#experience">Experience</Nav.Link>
-            <Nav.Link href="#collaborate">Collaborate</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+            <Nav.Link href="#about">Philosophy</Nav.Link>
+            <Nav.Link href="#skills">Services</Nav.Link>
+            <Nav.Link href="#projects">Work</Nav.Link>
+            <Nav.Link href="#contact" className="nav-cta ms-lg-3 mt-3 mt-lg-0">
+              Book a Call
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
