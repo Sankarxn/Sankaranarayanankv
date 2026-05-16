@@ -30,6 +30,15 @@ const projectsData = [
     link: 'https://aentree.vercel.app/',
     tags: ['Brand Authority', 'Animated UX', 'Lead Capture'],
   },
+  {
+    number: '04',
+    name: 'Ember & oak',
+    category: 'Restaurant Website',
+    desc: 'Crafted a visually stunning website for a boutique restaurant, focusing on an immersive user experience. The site features dynamic menu displays and seamless reservation integration, resulting in a 40% increase in online bookings.',
+    img: 'https://placehold.co/800x450/1A1A1A/C8A96E?text=Ember+%26+oak',
+    link: 'https://ember0ak.netlify.app/',
+    tags: ['Restaurant Website', 'Performance Optimization', 'Lead Gen'],
+  },
 ];
 
 const Projects = () => {
